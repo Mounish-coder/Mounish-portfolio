@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mounish Shamkalla | AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<!-- GSAP for premium animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- ── Fixed Particle Canvas (persists across all sections) ── -->
+<div class="robot-3d-bg" id="robotBg" aria-hidden="true">
+  <canvas id="heroParticleCanvas"></canvas>
+</div>
+
+<!-- ── Ambient Grain & Orbs ─────────────────────── -->
+<div class="site-noise"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ── Scroll Progress ───────────────────────────── -->
+<div class="scroll-track"><div class="scroll-fill" id="scrollFill"></div></div>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <span class="brand-ring"></span>
+      <span class="brand-text">Mounish<span class="brand-accent">.ai</span></span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about"      class="nav-lnk" data-text="About">About</a>
+      <a href="#skills"     class="nav-lnk" data-text="Skills">Skills</a>
+      <a href="#projects"   class="nav-lnk" data-text="Work">Work</a>
+      <a href="#experience" class="nav-lnk" data-text="Journey">Journey</a>
+      <a href="#contact"    class="nav-lnk" data-text="Contact">Contact</a>
+    </div>
+
+    <a href="resume.pdf" download class="btn-pill mag">Resume ↗</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Work</a>
+  <a href="#experience">Journey</a>
+  <a href="#contact">Contact</a>
+  <a href="resume.pdf" download>Resume ↗</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────── -->
+<section id="hero" class="hero">
+
+
+
+  <!-- Big decorative lines -->
+  <div class="hero-line line-h1"></div>
+  <div class="hero-line line-h2"></div>
+
+  <div class="hero-wrap">
+
+    <!-- Left: Text Stack -->
+    <div class="hero-left">
+      <div class="chip glass reveal-chip">
+        <span class="pulse"></span>
+        Open to new roles
+      </div>
+
+      <!-- Word-split headline — JS animates each .word -->
+      <h1 class="hero-h1">
+        <span class="h1-line"><span class="word">Building</span> <span class="word">Intelligent</span></span>
+        <span class="h1-line"><span class="word text-ora">Software</span></span>
+        <span class="h1-line"><span class="word">Solutions</span></span>
+      </h1>
+
+      <p class="hero-sub reveal-up">
+        AI &amp; ML Engineer crafting practical AI applications,<br>
+        accessibility platforms, and full-stack products.
+      </p>
+
+      <div class="hero-btns reveal-up" style="--d:.6s">
+        <a href="#projects" class="btn-orange mag">View Work</a>
+        <a href="#contact"  class="btn-ghost  mag">Contact Me</a>
+      </div>
+
+      <!-- Floating stat chips -->
+      <div class="stat-row">
+        <div class="stat-chip glass float-a">
+          <strong>2+</strong>
+          <span>Projects</span>
+        </div>
+        <div class="stat-chip glass float-b">
+          <strong>AI</strong>
+          <span>Specialist</span>
+        </div>
+        <div class="stat-chip glass float-c">
+          <strong>79%</strong>
+          <span>B.Tech CGPA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Profile visual -->
+    <div class="hero-right">
+      <div class="avatar-wrap" id="avatarWrap">
+        <!-- Glow rings -->
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+
+        <!-- Glass frame -->
+        <div class="avatar-glass glass">
+          <img src="avatar.jpg" alt="Mounish Shamkalla" class="avatar-img"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:'MS'}))"/>
+          <div class="avatar-overlay"></div>
+
+          <!-- Floating info chips inside frame -->
+          <div class="info-pip pip-top glass">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            AI Models Active
+          </div>
+          <div class="info-pip pip-bot glass">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Available 2026
+          </div>
+        </div>
+
+        <!-- Floating badges outside frame -->
+        <div class="badge-float bf-1 glass">Python</div>
+        <div class="badge-float bf-2 glass">FastAPI</div>
+        <div class="badge-float bf-3 glass">React</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="section-wrap about-wrap">
+
+    <div class="about-left">
+      <p class="eyebrow reveal-up">Who I am</p>
+      <h2 class="section-h2 reveal-up" style="--d:.1s">
+        Bridging AI Research &amp;<br>
+        <span class="text-ora">Product Engineering</span>
+      </h2>
+      <p class="body-txt reveal-up" style="--d:.2s">
+        I am a B.Tech AI &amp; Machine Learning student at AITS Rajampet, driven by transforming complex algorithms into scalable, human-centred software.
+      </p>
+      <p class="body-txt reveal-up" style="--d:.3s">
+        My work spans the full development lifecycle—from training and evaluating ML models to architecting the backend systems that deploy them, always with a focus on code quality and user impact.
+      </p>
+    </div>
+
+    <div class="about-right">
+      <!-- Glass capability cards -->
+      <div class="cap-card glass reveal-card" style="--d:.1s">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div>
+          <h4>Machine Learning</h4>
+          <p>Model development, evaluation &amp; feature engineering workflows.</p>
+        </div>
+      </div>
+      <div class="cap-card glass reveal-card" style="--d:.25s">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <h4>Full-Stack Architecture</h4>
+          <p>Scalable systems with decoupled UI and database logic.</p>
+        </div>
+      </div>
+      <div class="cap-card glass reveal-card" style="--d:.4s">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div>
+          <h4>Accessibility Technology</h4>
+          <p>Automating WCAG compliance with AI-powered analysis.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SKILLS ─────────────────────────────────────── -->
+<section id="skills" class="section section-alt">
+  <div class="section-wrap">
+
+    <div class="sec-header">
+      <p class="eyebrow reveal-up">Technical Arsenal</p>
+      <h2 class="section-h2 reveal-up" style="--d:.1s">Core Competencies</h2>
+    </div>
+
+    <div class="skills-bento">
+
+      <div class="skill-card glass reveal-card" style="--d:.0s">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Languages</h3>
+        <div class="tag-cloud">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-card glass reveal-card" style="--d:.15s">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3>Data &amp; ML</h3>
+        <div class="tag-cloud">
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <div class="skill-card glass reveal-card" style="--d:.3s">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Frameworks &amp; Tools</h3>
+        <div class="tag-cloud">
+          <span class="tag">Streamlit</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">React</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </div>
+
+      <!-- Wide card -->
+      <div class="skill-card skill-wide glass reveal-card" style="--d:.45s">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        </div>
+        <h3>Engineering Practices</h3>
+        <div class="tag-cloud">
+          <span class="tag">Data Structures</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">OOP</span>
+          <span class="tag">Agile</span>
+          <span class="tag">Testing</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">DBMS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ───────────────────────────────────── -->
+<section id="projects" class="section">
+  <div class="section-wrap">
+
+    <div class="sec-header" style="margin-bottom: 2rem;">
+      <p class="eyebrow reveal-up">Selected Work</p>
+      <h2 class="section-h2 reveal-up" style="--d:.1s">Selected Work</h2>
+      <p class="body-txt reveal-up" style="--d:.2s;max-width:560px;margin:0 auto;">Real-world projects focused on AI, accessibility, automation, and software engineering.</p>
+    </div>
+
+    <!-- ── Case Study 01 ── -->
+    <article class="cs-card glass" id="cs-01">
+
+      <!-- Top bar -->
+      <div class="cs-topbar">
+        <span class="cs-index">01</span>
+        <span class="cs-cat">AI · Accessibility · Full Stack</span>
+        <a href="https://github.com/mounish-coder" target="_blank" rel="noopener" class="cs-gh mag">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.09.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.577.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          View Repository
+        </a>
+      </div>
+
+      <!-- Title block -->
+      <div class="cs-title-row">
+        <div>
+          <h3 class="cs-title">AccessAI – AI-Powered Accessibility Audit Agent</h3>
+          <p class="cs-subtitle">Full Stack Developer & AI Engineer</p>
+        </div>
+        <div class="cs-pills">
+          <span class="cs-pill pill-ai">AI Agent</span>
+          <span class="cs-pill pill-web">Full Stack</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="cs-body">
+
+        <!-- Left: narrative -->
+        <div class="cs-narrative">
+
+          <div class="cs-block">
+            <h4 class="cs-label">Overview</h4>
+            <p>AccessAI is an intelligent accessibility auditing platform designed to help organizations identify and resolve website accessibility issues automatically. The platform performs accessibility analysis, calculates compliance scores, and generates AI-powered recommendations for improving digital experiences.</p>
+          </div>
+
+          <div class="cs-block">
+            <h4 class="cs-label">The Challenge</h4>
+            <p>Many websites fail to meet accessibility standards because manual audits are slow, expensive, and difficult to scale.</p>
+          </div>
+
+          <div class="cs-block">
+            <h4 class="cs-label">The Solution</h4>
+            <p>I built an AI-powered auditing platform that automates accessibility testing using browser automation and intelligent analysis. The system scans web pages, detects compliance issues, and generates actionable recommendations.</p>
+          </div>
+
+          <div class="cs-block">
+            <h4 class="cs-label">Key Features</h4>
+            <ul class="cs-list">
+              <li>Automated accessibility auditing</li>
+              <li>WCAG compliance analysis</li>
+              <li>Accessibility score generation</li>
+              <li>AI-powered recommendations</li>
+              <li>Audit history tracking</li>
+              <li>Report generation</li>
+              <li>Browser automation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: visual + stack -->
+        <div class="cs-sidebar">
+          <!-- Visual art -->
+          <div class="cs-art glass art-1">
+            <div class="art-ring ar1"></div>
+            <div class="art-ring ar2"></div>
+            <div class="art-ring ar3"></div>
+            <div class="art-dot"></div>
+            <div class="art-label">WCAG Audit Engine</div>
+          </div>
+
+          <!-- Stack -->
+          <div class="cs-stack-box">
+            <p class="cs-stack-title">Technologies</p>
+            <div class="cs-badges">
+              <span class="cs-badge badge-react">React</span>
+              <span class="cs-badge badge-api">FastAPI</span>
+              <span class="cs-badge badge-pw">Playwright</span>
+              <span class="cs-badge badge-ai">Groq AI</span>
+              <span class="cs-badge badge-py">Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /cs-body -->
+    </article>
+
+    <!-- ── Case Study 02 ── -->
+    <article class="cs-card glass" id="cs-02">
+
+      <div class="cs-topbar">
+        <span class="cs-index">02</span>
+        <span class="cs-cat">Software Dev · Database Design</span>
+        <a href="https://github.com/mounish-coder" target="_blank" rel="noopener" class="cs-gh mag">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.09.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.577.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          View Repository
+        </a>
+      </div>
+
+      <div class="cs-title-row">
+        <div>
+          <h3 class="cs-title">Library Management System</h3>
+          <p class="cs-subtitle">Software Developer</p>
+        </div>
+        <div class="cs-pills">
+          <span class="cs-pill pill-db">Database</span>
+          <span class="cs-pill pill-web">Full Stack</span>
+        </div>
+      </div>
+
+      <div class="cs-body">
+
+        <div class="cs-narrative">
+
+          <div class="cs-block">
+            <h4 class="cs-label">Overview</h4>
+            <p>A full-stack library management solution developed to simplify book management, member tracking, borrowing records, and fine calculations through a structured software system.</p>
+          </div>
+
+          <div class="cs-block">
+            <h4 class="cs-label">The Challenge</h4>
+            <p>Traditional library processes often rely on manual tracking, resulting in inefficiencies and errors.</p>
+          </div>
+
+          <div class="cs-block">
+            <h4 class="cs-label">The Solution</h4>
+            <p>Developed a modular application using Python, SQL, Pandas, and Streamlit with a normalized database structure and object-oriented architecture.</p>
+          </div>
+
+          <div class="cs-block">
+            <h4 class="cs-label">Key Features</h4>
+            <ul class="cs-list">
+              <li>Book management system</li>
+              <li>Member management system</li>
+              <li>Automated fine calculation</li>
+              <li>Database normalization</li>
+              <li>OOP architecture</li>
+              <li>Streamlit dashboard</li>
+              <li>Structured documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-sidebar">
+          <div class="cs-art glass art-2">
+            <div class="art-grid">
+              <div></div><div></div><div></div>
+              <div></div><div></div><div></div>
+              <div></div><div></div><div></div>
+            </div>
+            <div class="art-label">DB Schema</div>
+          </div>
+
+          <div class="cs-stack-box">
+            <p class="cs-stack-title">Technologies</p>
+            <div class="cs-badges">
+              <span class="cs-badge badge-py">Python</span>
+              <span class="cs-badge badge-sql">SQL</span>
+              <span class="cs-badge badge-pd">Pandas</span>
+              <span class="cs-badge badge-st">Streamlit</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ── EXPERIENCE & EDUCATION ─────────────────────── -->
+<section id="experience" class="section section-alt">
+  <div class="section-wrap">
+
+    <div class="sec-header">
+      <p class="eyebrow reveal-up">The Journey</p>
+      <h2 class="section-h2 reveal-up" style="--d:.1s">Experience &amp; Education</h2>
+    </div>
+
+    <div class="journey-grid">
+
+      <!-- Experience -->
+      <div>
+        <h3 class="col-title reveal-up">Work Experience</h3>
+        <div class="tl">
+          <div class="tl-item glass reveal-card" style="--d:.1s">
+            <div class="tl-marker"></div>
+            <div class="tl-year">2026</div>
+            <h4 class="tl-role">AI/ML Using Python Intern</h4>
+            <span class="tl-org">Technotron</span>
+            <ul class="tl-pts">
+              <li>Machine learning model development and evaluation.</li>
+              <li>Data preprocessing and feature engineering workflows.</li>
+              <li>Technical documentation and version control.</li>
+            </ul>
+          </div>
+          <div class="tl-item glass reveal-card" style="--d:.25s">
+            <div class="tl-marker"></div>
+            <div class="tl-year">Workshop</div>
+            <h4 class="tl-role">Entrepreneurship &amp; Innovation</h4>
+            <span class="tl-org">Wadhwani Foundation Ignite</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <h3 class="col-title reveal-up" style="--d:.1s">Education</h3>
+        <div class="tl">
+          <div class="tl-item glass reveal-card" style="--d:.15s">
+            <div class="tl-marker"></div>
+            <div class="tl-year">2022 – 2026</div>
+            <h4 class="tl-role">B.Tech AI &amp; Machine Learning</h4>
+            <span class="tl-org">AITS Rajampet</span>
+            <div class="tl-score">79.3%</div>
+          </div>
+          <div class="tl-item glass reveal-card" style="--d:.3s">
+            <div class="tl-marker"></div>
+            <div class="tl-year">Intermediate</div>
+            <h4 class="tl-role">MPC</h4>
+            <div class="tl-score">73.6%</div>
+          </div>
+          <div class="tl-item glass reveal-card" style="--d:.45s">
+            <div class="tl-marker"></div>
+            <div class="tl-year">SSC</div>
+            <h4 class="tl-role">Secondary School Certificate</h4>
+            <div class="tl-score">83.17%</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────── -->
+<section id="contact" class="section contact-section">
+  <div class="contact-glow"></div>
+  <div class="section-wrap">
+
+    <div class="contact-head">
+      <p class="eyebrow reveal-up">Get In Touch</p>
+      <h2 class="section-h2 reveal-up" style="--d:.1s">
+        Let's Build the<br><span class="text-ora">Future Together.</span>
+      </h2>
+      <p class="body-txt reveal-up" style="--d:.2s">Open to AI internships, collaborations, and full-time engineering roles.</p>
+    </div>
+
+    <div class="contact-cards">
+
+      <button class="c-card glass reveal-card mag" style="--d:.1s" data-copy="mounishshamkalla@gmail.com">
+        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="c-info">
+          <span class="c-label">Email — click to copy</span>
+          <span class="c-val">mounishshamkalla@gmail.com</span>
+        </div>
+      </button>
+
+      <button class="c-card glass reveal-card mag" style="--d:.2s" data-copy="+91 9573235370">
+        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="c-info">
+          <span class="c-label">Phone — click to copy</span>
+          <span class="c-val">+91 9573235370</span>
+        </div>
+      </button>
+
+      <a href="https://linkedin.com/in/mounish-shamkalla" target="_blank" class="c-card glass reveal-card mag" style="--d:.3s">
+        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div class="c-info">
+          <span class="c-label">LinkedIn</span>
+          <span class="c-val">linkedin.com/in/mounish-shamkalla</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/mounish-coder" target="_blank" class="c-card glass reveal-card mag" style="--d:.4s">
+        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+        <div class="c-info">
+          <span class="c-label">GitHub</span>
+          <span class="c-val">github.com/mounish-coder</span>
+        </div>
+      </a>
+
+      <a href="resume.pdf" download class="c-card glass c-card-wide reveal-card mag" style="--d:.5s">
+        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <div class="c-info">
+          <span class="c-label">Download</span>
+          <span class="c-val">Resume / CV</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="brand">
+      <span class="brand-ring small"></span>
+      <span class="brand-text">Mounish<span class="brand-accent">.ai</span></span>
+    </div>
+    <p class="footer-note">© 2026 · Designed with precision.</p>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">Copied!</div>
+
+<script src="script.js"></script>
+
+<!-- Three.js r134 + particle robot -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="robot-particle.js"></script>
+</body>
+</html>
